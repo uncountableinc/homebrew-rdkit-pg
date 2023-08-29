@@ -26,17 +26,17 @@ jobs:
           mkdir build
           cd build
           # --- renable after ---
-          # brew install boost freetype eigen postgresql@13
-          # brew link postgresql@13
-          # export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
-          # export LDFLAGS="-L/usr/local/opt/postgresql@13/lib"
-          # export CPPFLAGS="-I/usr/local/opt/postgresql@13/include"
-          # export PKG_CONFIG_PATH="/usr/local/opt/postgresql@13/lib/pkgconfig"
-          # mkdir -p /usr/local/opt/bin
-          # ln -s "$(which pg_config)" /usr/local/opt/bin/pg_config
-          # cmake ..   -D RDK_PGSQL_STATIC=ON -D RDK_BUILD_PGSQL=ON -D RDK_BUILD_PYTHON_WRAPPERS=OFF
-          # make -j4
-          # make install
+          brew install boost freetype eigen postgresql@13
+          brew link postgresql@13
+          export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
+          export LDFLAGS="-L/usr/local/opt/postgresql@13/lib"
+          export CPPFLAGS="-I/usr/local/opt/postgresql@13/include"
+          export PKG_CONFIG_PATH="/usr/local/opt/postgresql@13/lib/pkgconfig"
+          mkdir -p /usr/local/opt/bin
+          ln -s "$(which pg_config)" /usr/local/opt/bin/pg_config
+          cmake ..   -D RDK_PGSQL_STATIC=ON -D RDK_BUILD_PGSQL=ON -D RDK_BUILD_PYTHON_WRAPPERS=OFF
+          make -j4
+          make install
           cd ../../cask
           sh makezip.sh 4.2.0 ../rdkit ../rdkit/build
           cd ..
