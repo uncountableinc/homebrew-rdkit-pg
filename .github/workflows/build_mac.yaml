@@ -40,12 +40,12 @@ jobs:
           cd ../../cask
           sh makezip.sh 4.2.0 ../rdkit ../rdkit/build
           cd ..
-          find cask -type f >file1
+          # find cask -type f >file1
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "Development Build"
+          title: "Push Build Aritifacts to Release"
           files: |
-            file1
+            ./cask/rdkit*zip

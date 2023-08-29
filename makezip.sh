@@ -8,6 +8,10 @@ if [[ -z "$RDKIT_VER" ]] || [[ -z "$RDKIT_BUILD" ]] || [[ -z "$RDKIT_REPO" ]] ; 
 fi
 
 ARCH=$(arch)
+if [[ "$ARCH" = "i386" ]]; then
+   # Actually x86_64, there is no 32bit mac?
+   ARCH="x86_64"
+fi
 
 rm -rf "./$ARCH"
 mkdir -p "$ARCH/rdkit_pg/update_sql"
