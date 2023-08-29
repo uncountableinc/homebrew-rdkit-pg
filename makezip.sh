@@ -22,5 +22,5 @@ cp -v "$RDKIT_REPO/Code/PgSQL/rdkit/rdkit.control" "$ARCH/"
 cp -v "$RDKIT_BUILD/Code/PgSQL/rdkit/rdkit.so" "$ARCH/"
 cp -vr "$RDKIT_BUILD/lib" "$ARCH/lib"
 
-zip -r rdkit-pg_${RDKIT_VER}_$(arch).zip install $(arch)
+zip -r rdkit-pg_${RDKIT_VER}_${ARCH}.zip install ${ARCH}
 
