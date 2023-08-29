@@ -12,8 +12,16 @@ jobs:
         with:
           repository: 'rdkit/rdkit'
           ref: 'Release_2022_09'
+          path: 'rdkit'
       - name: "Build"
         run: |
+          cd rdkit
+          mkdir build
+          cd build
+          brew install boost freetype eigen postgresql@13
+          cmake ..   -D RDK_PGSQL_STATIC=ON -D RDK_BUILD_PGSQL=ON -D RDK_BUILD_PYTHON_WRAPPERS=OFF
+          make -j4
+          make install
           find . -type f >file1
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
