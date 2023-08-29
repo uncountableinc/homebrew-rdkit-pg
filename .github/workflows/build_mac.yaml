@@ -19,6 +19,7 @@ jobs:
           mkdir build
           cd build
           brew install boost freetype eigen postgresql@13
+          export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
           cmake ..   -D RDK_PGSQL_STATIC=ON -D RDK_BUILD_PGSQL=ON -D RDK_BUILD_PYTHON_WRAPPERS=OFF
           make -j4
           make install
