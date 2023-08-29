@@ -10,35 +10,37 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: 'rdkit/rdkit'
-          ref: 'Release_2022_09'
-          path: 'rdkit'
+          repository: "rdkit/rdkit"
+          ref: "Release_2022_09"
+          path: "rdkit"
       - uses: actions/checkout@v3
         with:
-          repository: 'uncountableinc/rdkit-pg-homebrew'
-          ref: 'main'
-          path: 'cask'
+          repository: "uncountableinc/rdkit-pg-homebrew"
+
+          ref: "main"
+          path: "cask"
       - name: "Build"
         run: |
           set -x
           cd rdkit
           mkdir build
           cd build
-          brew install boost freetype eigen postgresql@13
-          brew link postgresql@13
-          export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
-          export LDFLAGS="-L/usr/local/opt/postgresql@13/lib"
-          export CPPFLAGS="-I/usr/local/opt/postgresql@13/include"
-          export PKG_CONFIG_PATH="/usr/local/opt/postgresql@13/lib/pkgconfig"
-          mkdir -p /usr/local/opt/bin
-          ln -s "$(which pg_config)" /usr/local/opt/bin/pg_config
-          cmake ..   -D RDK_PGSQL_STATIC=ON -D RDK_BUILD_PGSQL=ON -D RDK_BUILD_PYTHON_WRAPPERS=OFF
-          make -j4
-          make install
-
-          cd ../cask
+          # --- renable after ---
+          # brew install boost freetype eigen postgresql@13
+          # brew link postgresql@13
+          # export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
+          # export LDFLAGS="-L/usr/local/opt/postgresql@13/lib"
+          # export CPPFLAGS="-I/usr/local/opt/postgresql@13/include"
+          # export PKG_CONFIG_PATH="/usr/local/opt/postgresql@13/lib/pkgconfig"
+          # mkdir -p /usr/local/opt/bin
+          # ln -s "$(which pg_config)" /usr/local/opt/bin/pg_config
+          # cmake ..   -D RDK_PGSQL_STATIC=ON -D RDK_BUILD_PGSQL=ON -D RDK_BUILD_PYTHON_WRAPPERS=OFF
+          # make -j4
+          # make install
+          cd ../../cask
           sh makezip.sh 4.2.0 ../rdkit ../rdkit/build
           cd ..
+          find cask -type f >file1
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -46,4 +48,4 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-             ./cask/rdkit_4.2.0_x86_64.zip
+            file1
