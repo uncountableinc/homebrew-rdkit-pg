@@ -13,6 +13,11 @@ jobs:
           repository: 'rdkit/rdkit'
           ref: 'Release_2022_09'
           path: 'rdkit'
+      - uses: actions/checkout@v3
+        with:
+          repository: 'uncountableinc/rdkit-pg-homebrew'
+          ref: 'main'
+          path: 'cask'
       - name: "Build"
         run: |
           set -x
@@ -30,7 +35,10 @@ jobs:
           cmake ..   -D RDK_PGSQL_STATIC=ON -D RDK_BUILD_PGSQL=ON -D RDK_BUILD_PYTHON_WRAPPERS=OFF
           make -j4
           make install
-          find . -type f >file1
+
+          cd ../cask
+          sh makezip.sh 4.2.0 ../rdkit ../rdkit/build
+          cd ..
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -38,4 +46,4 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            file1
+             ./cask/rdkit_4.2.0_x86_64.zip
