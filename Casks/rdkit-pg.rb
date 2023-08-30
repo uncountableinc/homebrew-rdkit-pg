@@ -6,7 +6,7 @@ cask "rdkit-pg" do
          intel: "50581054cda07f4497a9eeda90c4cf217ccae20326b5c484da90c8e88f3cff848"
 
   homepage "https://github.com/uncountableinc/rdkit-pg-homebrew"
-  url "https://github.com/uncountableinc/rdkit-pg-homebrew/releases/download/4.2.0/rdkit-pg_#{version}_#{arch}.zip", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+  url "https://github.com/uncountableinc/rdkit-pg-homebrew/releases/download/4.2.0/rdkit-pg_#{version}_#{arch}.zip"
   name "RDKit Postgresql Extension"
   desc "Installs the RDKit Postgresql Extension"
 
