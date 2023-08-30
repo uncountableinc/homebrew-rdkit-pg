@@ -13,3 +13,4 @@ fi
 rm -v "$PG_SHARE/extension/rdkit*"
 rm -v "$PG_LIB/libRDKit*"
 rm -v "$PG_LIB/rdkit.so"
+rm -v "$PG_LIB/postgresql/rdkit.so"
