@@ -1,11 +1,12 @@
 cask "rdkit-pg" do
-  arch arm: "arm64", intel: "i386"
+  arch arm: "arm64", intel: "x86_64"
 
   version "4.2.0"
   sha256 arm: "61b72b0eb3a242e692bf795ec3cda059387588352a7de1792978ceb6f3f342c3",
-         intel: "53c125e040affb8b44ff963602b3d0c2f4978e244c38e3eb489b9acbff95f762"
+         intel: "50581054cda07f4497a9eeda90c4cf217ccae20326b5c484da90c8e88f3cff848"
 
-  url "http://localhost:3000/rdkit-pg_#{version}_#{arch}.zip"
+  homepage "https://github.com/uncountableinc/rdkit-pg-homebrew"
+  url "https://github.com/uncountableinc/rdkit-pg-homebrew/releases/download/4.2.0/rdkit-pg_#{version}_#{arch}.zip", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
   name "RDKit Postgresql Extension"
   desc "Installs the RDKit Postgresql Extension"
 
