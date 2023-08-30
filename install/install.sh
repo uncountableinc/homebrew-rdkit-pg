@@ -6,6 +6,10 @@ PG_CONFIG="$PG_BIN/pg_config"
 PG_SHARE="$("$PG_CONFIG" --sharedir)"
 PG_LIB="$("$PG_CONFIG" --libdir)"
 
+date >>/tmp/run
+echo "$PWD" >>/tmp/run
+find . >>/tmp/run
+
 cp "$ARCH"/rdkit_pg/*.sql "$PG_SHARE/extension/"
 cp "$ARCH"/rdkit.control "$PG_SHARE/extension/"
 cp "$ARCH"/rdkit_pg/update_sql/*.sql "$PG_SHARE/extension/"

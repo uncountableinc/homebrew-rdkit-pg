@@ -10,7 +10,7 @@ if [[ -z "$PG_SHARE" ]] || [[ -z "$PG_LIB" ]]; then
    exit 1
 fi
 
-rm -v "$PG_SHARE/extension/rdkit*"
-rm -v "$PG_LIB/libRDKit*"
-rm -v "$PG_LIB/rdkit.so"
-rm -v "$PG_LIB/postgresql/rdkit.so"
+rm -v "$PG_SHARE/extension/rdkit*" || true
+rm -v "$PG_LIB/libRDKit*" || true
+rm -v "$PG_LIB/rdkit.so" || true
+rm -v "$PG_LIB/postgresql/rdkit.so" || true
