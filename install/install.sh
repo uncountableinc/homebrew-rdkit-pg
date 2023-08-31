@@ -21,4 +21,4 @@ cp "$FILES_PATH"/rdkit.so "$PG_LIB/"
 cp "$FILES_PATH"/rdkit.so "$PG_LIB/postgresql/"
 cp "$FILES_PATH"/lib/* "$PG_LIB/"
 
-cp "install/uninstall.sh" "$PG_BIN/uninstall_rdkit.sh"
+cp "$FILES_PATH/../install/uninstall.sh" "$PG_BIN/uninstall_rdkit.sh"
