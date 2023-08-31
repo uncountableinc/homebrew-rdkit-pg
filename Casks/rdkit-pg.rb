@@ -2,8 +2,8 @@ cask "rdkit-pg" do
   arch arm: "arm64", intel: "x86_64"
 
   version "4.2.0"
-  sha256 arm: "1263e646b83012052fb1e70aa78fc5c951158322d12d38ed90613267123ae677",
-         intel: "d86b9f544343b7ed7897bba9db9bfa9bb6d774a9921ba733919771d54b21782c"
+  sha256 arm: "a1014dfe43cab382ed43a3508c016cf2e7c6fce2ba9434b62d7a6c4d0903ae67",
+         intel: "6a573967b90a014bceff7d67a6c979705b8d1694fd97344fe8e6c8d63d7d8875"
 
   homepage "https://github.com/uncountableinc/rdkit-pg-homebrew"
   url "https://github.com/uncountableinc/rdkit-pg-homebrew/releases/download/4.2.0/rdkit-pg_#{version}_#{arch}.zip"
