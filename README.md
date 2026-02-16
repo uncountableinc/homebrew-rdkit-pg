@@ -25,8 +25,8 @@ Setup procedure.
 
 
 * Come back to this folder:
-  * `./makezip.sh 4.2 $HOME/rdkit $HOME/rdkit/build`
-  * On mac m1 arm this will produce the file: rdkit-pg_4.2_arm64.zip
+  * `./makezip.sh 4.2.0 $HOME/rdkit $HOME/rdkit/build`
+  * On mac m1 arm this will produce the file: rdkit-pg_4.2.0_arm64.zip
   * Take the sha256sum of the zip.
   * Update the `Casks/rdkit-pg.rb` add the new shasum, then also bump the github release tag from 4.2.0 to 4.2.0-X to
   * Merge those changes into master via github PR.
